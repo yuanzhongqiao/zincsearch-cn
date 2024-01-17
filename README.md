@@ -1,87 +1,114 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/zincsearch/zincsearch)](https://goreportcard.com/report/github.com/zincsearch/zincsearch)
-[![Docs](https://img.shields.io/badge/Docs-Docs-green)](https://zincsearch-docs.zinc.dev/) [![codecov](https://codecov.io/github/zincsearch/zincsearch/branch/main/graph/badge.svg)](https://codecov.io/github/zinclabs/zincsearch)
-
-❗Note: If your use case is of log search (app and security logs) instead of app search (implement search feature in your application or website) then you should check [openobserve/openobserve](https://github.com/openobserve/openobserve) project built in rust that is specifically built for log search use case.
-
-# ZincSearch
-
-ZincSearch is a search engine that does full text indexing. It is a lightweight alternative to Elasticsearch and runs using a fraction of the resources. It uses [bluge](https://github.com/blugelabs/bluge) as the underlying indexing library.
-
-It is very simple and easy to operate as opposed to Elasticsearch which requires a couple dozen knobs to understand and tune which you can get up and running in 2 minutes
-
-It is a drop-in replacement for Elasticsearch if you are just ingesting data using APIs and searching using kibana (Kibana is not supported with ZincSearch. ZincSearch provides its own UI).
-
-Check the below video for a quick demo of ZincSearch.
-
-[![Zinc Youtube](./screenshots/zinc-youtube.jpg)](https://www.youtube.com/watch?v=aZXtuVjt1ow)
-
-# Why ZincSearch
-
-While Elasticsearch is a very good product, it is complex and requires lots of resources and is more than a decade old. I built ZincSearch so it becomes easier for folks to use full text search indexing without doing a lot of work.
-
-# Features:
-
-1. Provides full text indexing capability
-2. Single binary for installation and running. Binaries available under releases for multiple platforms.
-3. Web UI for querying data written in Vue
-4. Compatibility with Elasticsearch APIs for ingestion of data (single record and bulk API)
-5. Out of the box authentication
-6. Schema less - No need to define schema upfront and different documents in the same index can have different fields.
-7. Index storage in disk
-8. aggregation support
-
-# Documentation
-
-Documentation is available at [https://zincsearch-docs.zinc.dev/](https://zincsearch-docs.zinc.dev/)
-
-# Screenshots
-
-## Search screen
-
-![Search screen](./screenshots/search_screen.jpg)
-
-## User management screen
-
-![Users screen](./screenshots/users_screen.jpg)
-
-# Getting started
-
-## Quickstart
-
-Check [Quickstart](https://zincsearch-docs.zinc.dev/quickstart/)
-
-# Releases
-
-ZincSearch has hundreds of production installations.
-
-# ZincSearch Vs OpenObserve
-
-| Feature              | ZincSearch                                                       | OpenObserve                                                                               |
-| -------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Ideal use case       | App search                                                       | Logs, metrics, traces (Immutable Data)                                                    |
-| Storage              | Disk                                                             | Disk, Object (S3), GCS, MinIO, swift and more.                                            |
-| Preferred Use case   | App search                                                       | Observability (Logs, metrics, traces)                                                     |
-| Max data supported   | 100s of GBs                                                      | Petabyte scale                                                                            |
-| High availability    | Not available                                                    | Yes                                                                                       |
-| Open source          | Yes                                                              | Yes, [OpenObserve](https://github.com/openobserve/openobserve)                            |
-| ES API compatibility | Yes                                                              | Yes                                                                                       |
-| GUI                  | Basic                                                            | Very Advanced, including dashboards                                                       |
-| Cost                 | Open source                                                      | Open source                                                                               |
-| Get started          | [Open source docs](https://zincsearch-docs.zinc.dev/quickstart/) | [Open source docs](https://openobserve.ai/docs) or [Cloud](https://cloud.openobserve.ai) |
-
-# Community
-
-- How to develop and contribute to ZincSearch
-
-  Check the [contributing guide](./CONTRIBUTING.md) . Also check the [roadmap items](https://github.com/orgs/zinclabs/projects/3)
-
-# Examples
-
-You can use ZincSearch to index and search any data. Here are some examples that folks have created to index and search enron email dataset using zincsearch:
-
-1. https://github.com/jorgeloaiza48/Enron-Email-DataSet
-1. https://github.com/jhojanperlaza/email_search_engine
-1. https://github.com/carlosarraes/zinmail
-1. https://github.com/devjopa/golab-search
-1. https://github.com/avaco2312/zincsearch
-1. https://github.com/paolorossig/email-indexer
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a href="https://goreportcard.com/report/github.com/zincsearch/zincsearch" rel="nofollow"><img src="https://camo.githubusercontent.com/4084059be1aa20f4e9edcf99a0838574d4b5384244502f363c10ebf64eee5856/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f7a696e637365617263682f7a696e63736561726368" alt="去报告卡" data-canonical-src="https://goreportcard.com/badge/github.com/zincsearch/zincsearch" style="max-width: 100%;"></a>
+<a href="https://zincsearch-docs.zinc.dev/" rel="nofollow"><img src="https://camo.githubusercontent.com/8c90185fd48f23a888e136466fb151ca188d3245764cf90609a4bba8aa9ade3a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f63732d446f63732d677265656e" alt="文档" data-canonical-src="https://img.shields.io/badge/Docs-Docs-green" style="max-width: 100%;"></a> <a href="https://codecov.io/github/zinclabs/zincsearch" rel="nofollow"><img src="https://camo.githubusercontent.com/550cae32f172e40e0dd5e374d6ff0a5d40ee67a23cf58a6900955718dbfdbe46/68747470733a2f2f636f6465636f762e696f2f6769746875622f7a696e637365617263682f7a696e637365617263682f6272616e63682f6d61696e2f67726170682f62616467652e737667" alt="代码科夫" data-canonical-src="https://codecov.io/github/zincsearch/zincsearch/branch/main/graph/badge.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">❗注意：如果您的用例是日志搜索（应用程序和安全日志）而不是应用程序搜索（在您的应用程序或网站中实现搜索功能），那么您应该检查专门为日志搜索使用而构建的 Rust 中的</font></font><a href="https://github.com/openobserve/openobserve"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">openobserve/openobserve</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目案件。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-zincsearch" class="anchor" aria-hidden="true" tabindex="-1" href="#zincsearch"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">锌搜索</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ZincSearch 是一个进行全文索引的搜索引擎。</font><font style="vertical-align: inherit;">它是 Elasticsearch 的轻量级替代品，运行时只使用一小部分资源。</font><font style="vertical-align: inherit;">它使用</font></font><a href="https://github.com/blugelabs/bluge"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bluge</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为底层索引库。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它非常简单且易于操作，与 Elasticsearch 不同，Elasticsearch 需要几十个旋钮来理解和调整，您可以在 2 分钟内启动并运行</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您只是使用 API 获取数据并使用 kibana 进行搜索（ZincSearch 不支持 Kibana。ZincSearch 提供了自己的 UI），那么它是 Elasticsearch 的直接替代品。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请观看下面的视频，了解 ZincSearch 的快速演示。</font></font></p>
+<p dir="auto"><a href="https://www.youtube.com/watch?v=aZXtuVjt1ow" rel="nofollow"><img src="/zincsearch/zincsearch/raw/main/screenshots/zinc-youtube.jpg" alt="锌 Youtube" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-why-zincsearch" class="anchor" aria-hidden="true" tabindex="-1" href="#why-zincsearch"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为什么选择锌搜索</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虽然 Elasticsearch 是一个非常好的产品，但它很复杂，需要大量资源，而且已有十多年的历史了。</font><font style="vertical-align: inherit;">我构建了 ZincSearch，这样人们就可以更轻松地使用全文搜索索引，而无需做大量工作。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-features" class="anchor" aria-hidden="true" tabindex="-1" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征：</font></font></h1>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提供全文索引功能</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于安装和运行的单个二进制文件。</font><font style="vertical-align: inherit;">二进制文件可在多个平台的版本中使用。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于查询用 Vue 编写的数据的 Web UI</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与 Elasticsearch API 兼容以获取数据（单记录和批量 API）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开箱即用的身份验证</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无架构 - 无需预先定义架构，同一索引中的不同文档可以具有不同的字段。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">索引存储在磁盘中</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">聚合支持</font></font></li>
+</ol>
+<h1 tabindex="-1" dir="auto"><a id="user-content-documentation" class="anchor" aria-hidden="true" tabindex="-1" href="#documentation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档可在</font></font><a href="https://zincsearch-docs.zinc.dev/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://zincsearch-docs.zinc.dev/获取</font></font></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-screenshots" class="anchor" aria-hidden="true" tabindex="-1" href="#screenshots"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">截图</font></font></h1>
+<h2 tabindex="-1" dir="auto"><a id="user-content-search-screen" class="anchor" aria-hidden="true" tabindex="-1" href="#search-screen"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜索画面</font></font></h2>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/zincsearch/zincsearch/blob/main/screenshots/search_screen.jpg"><img src="/zincsearch/zincsearch/raw/main/screenshots/search_screen.jpg" alt="搜索画面" style="max-width: 100%;"></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-user-management-screen" class="anchor" aria-hidden="true" tabindex="-1" href="#user-management-screen"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户管理画面</font></font></h2>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/zincsearch/zincsearch/blob/main/screenshots/users_screen.jpg"><img src="/zincsearch/zincsearch/raw/main/screenshots/users_screen.jpg" alt="用户屏幕" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-getting-started" class="anchor" aria-hidden="true" tabindex="-1" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h1>
+<h2 tabindex="-1" dir="auto"><a id="user-content-quickstart" class="anchor" aria-hidden="true" tabindex="-1" href="#quickstart"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速开始</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">检查</font></font><a href="https://zincsearch-docs.zinc.dev/quickstart/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速入门</font></font></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-releases" class="anchor" aria-hidden="true" tabindex="-1" href="#releases"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ZincSearch 拥有数百个生产安装。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-zincsearch-vs-openobserve" class="anchor" aria-hidden="true" tabindex="-1" href="#zincsearch-vs-openobserve"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ZincSearch 与 OpenObserve</font></font></h1>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">锌搜索</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放观察</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">理想的用例</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用程序搜索</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日志、指标、跟踪（不可变数据）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贮存</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁盘</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁盘、对象 (S3)、GCS、MinIO、swift 等。</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首选用例</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用程序搜索</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可观察性（日志、指标、跟踪）</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持的最大数据量</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数百 GB</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PB 级</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高可用性</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无法使用</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的，</font></font><a href="https://github.com/openobserve/openobserve"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放观察</font></font></a></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ES API 兼容性</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">图形用户界面</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本的</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非常先进，包括仪表板</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成本</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开始使用</font></font></td>
+<td><a href="https://zincsearch-docs.zinc.dev/quickstart/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源文档</font></font></a></td>
+<td><a href="https://openobserve.ai/docs" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://cloud.openobserve.ai" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">云</font></font></a></td>
+</tr>
+</tbody>
+</table>
+<h1 tabindex="-1" dir="auto"><a id="user-content-community" class="anchor" aria-hidden="true" tabindex="-1" href="#community"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区</font></font></h1>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何开发 ZincSearch 并为其做出贡献</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">检查</font></font><a href="/zincsearch/zincsearch/blob/main/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">另请检查</font></font><a href="https://github.com/orgs/zinclabs/projects/3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">路线图项目</font></font></a></p>
+</li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-examples" class="anchor" aria-hidden="true" tabindex="-1" href="#examples"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例子</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以使用 ZincSearch 来索引和搜索任何数据。</font><font style="vertical-align: inherit;">以下是人们使用 zincsearch 创建的用于索引和搜索安然电子邮件数据集的一些示例：</font></font></p>
+<ol dir="auto">
+<li><a href="https://github.com/jorgeloaiza48/Enron-Email-DataSet"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/jorgeloaiza48/Enron-Email-DataSet</font></font></a></li>
+<li><a href="https://github.com/jhojanperlaza/email_search_engine"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/jhojanperlaza/email_search_engine</font></font></a></li>
+<li><a href="https://github.com/carlosarraes/zinmail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/carlosarraes/zinmail</font></font></a></li>
+<li><a href="https://github.com/devjopa/golab-search"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/devjopa/golab-search</font></font></a></li>
+<li><a href="https://github.com/avaco2312/zincsearch"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/avaco2312/zincsearch</font></font></a></li>
+<li><a href="https://github.com/paolorossig/email-indexer"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/paolorossig/email-indexer</font></font></a></li>
+</ol>
+</article></div>
